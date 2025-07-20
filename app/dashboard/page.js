@@ -1,0 +1,17 @@
+"use client"
+import React, { use } from 'react'
+import { useSession, signIn, signOut } from "next-auth/react"
+import { useRouter } from 'next/navigation' // ✅ App Router
+
+const Dashboard = () => {
+const{data:session}=useSession()
+if(!session){
+    const router=useRouter()
+    router.push('/login')
+}
+  return (
+    <div>Dashboard</div>
+  )
+}
+
+export default Dashboard
